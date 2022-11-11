@@ -13,6 +13,7 @@ import {
   FaCcMastercard,
   FaCcPaypal,
   FaCcVisa,
+  FaStripe,
 } from "react-icons/fa";
 
 const Container = styled.div`
@@ -146,6 +147,7 @@ const Footer = () => {
           <FaCcMastercard style={{ marginRight: "10px", color: "3B5999" }} />
           <FaCcPaypal style={{ margin: "10px", color: "3B5999" }} />
           <FaCcVisa style={{ margin: "10px", color: "3B5999" }} />
+          <FaStripe style={{ margin: "10px", color: "3B5999" }} />
         </Payment>
       </Right>
     </Container>

@@ -9,6 +9,7 @@ const Container = styled.div`
   height: 60px;
 `;
 const Wrapper = styled.div`
+  margin: 0;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
