@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import { useState } from "react";
 import { slideItems } from "../data";
+import { mobileDevices } from "../responsive";
 
 const Container = styled.div`
   width: 100%;
@@ -14,6 +15,11 @@ const Container = styled.div`
   position: absolute;
   align-items: center;
   overflow: hidden;
+  ${mobileDevices({
+    flexDirection: "column",
+    height: "-250px",
+    display: "none",
+  })}
 `;
 
 const Arrow = styled.div`

@@ -5,6 +5,7 @@ import Announcement from "../components/Announcement";
 import Products from "../components/Products";
 import NewsLetter from "../components/NewsLetter";
 import Footer from "../components/Footer";
+import { mobileDevices } from "../responsive";
 
 const Container = styled.div``;
 const Title = styled.h3`
@@ -16,6 +17,11 @@ const FilterComponent = styled.div`
 `;
 const Filter = styled.div`
   margin: 20px;
+  ${mobileDevices({
+    margin: "0px 20px",
+    display: "flex",
+    flexDirection: "column",
+  })}
 `;
 const FilterText = styled.span`
   font-size: 20px;
@@ -26,6 +32,7 @@ const FilterText = styled.span`
 const Select = styled.select`
   padding: 10px;
   margin-right: 20px;
+  ${mobileDevices({ margin: "10px 0px" })}
 `;
 const Option = styled.option``;
 const ProductList = () => {

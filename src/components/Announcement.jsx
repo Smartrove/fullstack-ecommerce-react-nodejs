@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { mobileDevices } from "../responsive";
 
 const Container = styled.div`
   height: 30px;
@@ -11,6 +12,8 @@ const Container = styled.div`
   font-size: 14px;
   font-weight: 500;
   margin-top: 20px;
+
+  ${mobileDevices({ marginTop: "50px", width: "100%" })}
 `;
 
 const Announcement = () => {

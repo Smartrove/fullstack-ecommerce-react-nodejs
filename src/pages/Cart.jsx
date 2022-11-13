@@ -3,10 +3,13 @@ import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
+import { FaPlus, FaMinus } from "react-icons/fa";
+import { mobileDevices } from "../responsive";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px;
+  ${mobileDevices({ padding: "10px" })}
 `;
 const Title = styled.h1`
   font-weight: 300;
@@ -29,6 +32,8 @@ const TopButton = styled.button`
 `;
 const TopTexts = styled.div``;
 const TopText = styled.span`
+  ${mobileDevices({ display: "none" })}
+
   text-decoration: underline;
   cursor: pointer;
   margin: 0px 10px;
@@ -36,6 +41,8 @@ const TopText = styled.span`
 
 const Bottom = styled.div`
   display: flex;
+  ${mobileDevices({ flexDirection: "column" })}
+
   justify-content: space-between;
 `;
 const Info = styled.div`
@@ -43,6 +50,8 @@ const Info = styled.div`
 `;
 const Product = styled.div`
   display: flex;
+  ${mobileDevices({ flexDirection: "column" })}
+
   justify-content: space-between;
 `;
 const ProductDetail = styled.div`
@@ -50,7 +59,7 @@ const ProductDetail = styled.div`
   display: flex;
 `;
 const Image = styled.img`
-  width: 300px;
+  width: 200px;
 `;
 const Details = styled.div`
   padding: 20px;
@@ -65,15 +74,62 @@ const ProductID = styled.span`
   flex: 1;
 `;
 const ProductColor = styled.div`
-  flex: 1;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  margin: 20px;
 `;
 const ProductSize = styled.span`
   flex: 1;
 `;
 const PriceDetail = styled.span`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
-const Summary = styled.div``;
+const ProductAmountContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const ProductAmount = styled.span`
+  border: 2px solid teal;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+`;
+const ProductPrice = styled.h3``;
+const Hr = styled.hr`
+  height: 1px;
+`;
+const Summary = styled.div`
+  flex: 1;
+  border: 0.5px solid lightgrey;
+  border-radius: 10px;
+  padding: 20px;
+  height: 50vh;
+`;
+const SummaryTitle = styled.h1`
+  margin: 30px 0px;
+`;
+const SummaryItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-weight: ${(props) => props.type === "total" && "500"};
+  font-size: ${(props) => props.type === "total" && "25px"};
+`;
+const SummaryItemText = styled.span``;
+const SummaryItemPrice = styled.span``;
+const Button = styled.button`
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+`;
 
 const Cart = () => {
   return (
@@ -102,16 +158,94 @@ const Cart = () => {
                   <ProductID>
                     <b>ProductID: </b> 23456
                   </ProductID>
-                  <ProductColor />
+                  <ProductColor color="aqua" />
                   <ProductSize>
                     <b>ProductSize: </b> 40
                   </ProductSize>
                 </Details>
               </ProductDetail>
-              <PriceDetail>Price</PriceDetail>
+              <PriceDetail>
+                <ProductAmountContainer>
+                  <FaPlus />
+                  <ProductAmount>2</ProductAmount>
+                  <FaMinus />
+                </ProductAmountContainer>
+                <ProductPrice>$30</ProductPrice>
+              </PriceDetail>
+            </Product>
+            <Hr />
+            <Product>
+              <ProductDetail>
+                <Image src="product-6.jpg" />
+                <Details>
+                  <ProductName>
+                    <b>Product: </b> Swaggie Wear
+                  </ProductName>
+                  <ProductID>
+                    <b>ProductID: </b> 23456
+                  </ProductID>
+                  <ProductColor color="black" />
+                  <ProductSize>
+                    <b>ProductSize: </b> 38
+                  </ProductSize>
+                </Details>
+              </ProductDetail>
+              <PriceDetail>
+                <ProductAmountContainer>
+                  <FaPlus />
+                  <ProductAmount>2</ProductAmount>
+                  <FaMinus />
+                </ProductAmountContainer>
+                <ProductPrice>$30</ProductPrice>
+              </PriceDetail>
+            </Product>
+            <Hr />
+            <Product>
+              <ProductDetail>
+                <Image src="product-5.jpg" />
+                <Details>
+                  <ProductName>
+                    <b>Product: </b> Swaggie Wear
+                  </ProductName>
+                  <ProductID>
+                    <b>ProductID: </b> 23456
+                  </ProductID>
+                  <ProductColor color="gray" />
+                  <ProductSize>
+                    <b>ProductSize: </b> 39
+                  </ProductSize>
+                </Details>
+              </ProductDetail>
+              <PriceDetail>
+                <ProductAmountContainer>
+                  <FaPlus />
+                  <ProductAmount>2</ProductAmount>
+                  <FaMinus />
+                </ProductAmountContainer>
+                <ProductPrice>$30</ProductPrice>
+              </PriceDetail>
             </Product>
           </Info>
-          <Summary>Summary</Summary>
+          <Summary>
+            <SummaryTitle>Order Summary</SummaryTitle>
+            <SummaryItem>
+              <SummaryItemText>Subtotal</SummaryItemText>
+              <SummaryItemPrice>$80</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>EstimatedShipping</SummaryItemText>
+              <SummaryItemPrice>$5.90</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem>
+              <SummaryItemText>Shipping Discount</SummaryItemText>
+              <SummaryItemPrice>$ -5.90</SummaryItemPrice>
+            </SummaryItem>
+            <SummaryItem type="total">
+              <SummaryItemText>Total</SummaryItemText>
+              <SummaryItemPrice>$80</SummaryItemPrice>
+            </SummaryItem>
+            <Button>CheckOut Now</Button>
+          </Summary>
         </Bottom>
       </Wrapper>
       <Footer />

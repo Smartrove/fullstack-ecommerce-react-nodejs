@@ -15,9 +15,11 @@ import {
   FaCcVisa,
   FaStripe,
 } from "react-icons/fa";
+import { mobileDevices } from "../responsive";
 
 const Container = styled.div`
   display: flex;
+  ${mobileDevices({ flexDirection: "column" })}
 `;
 const Left = styled.div`
   flex: 1;
@@ -28,10 +30,12 @@ const Left = styled.div`
 const Center = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobileDevices({ display: "none" })}
 `;
 const Right = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobileDevices({ backgroundColor: "#fff8f8" })}
 `;
 
 const Title = styled.h3`
@@ -50,6 +54,7 @@ const ListItem = styled.li`
   margin-bottom: 20px;
 `;
 const Logo = styled.h1`
+  font-weight: bold;
   flex: 1;
 `;
 const Description = styled.div`
