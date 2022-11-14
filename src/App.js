@@ -5,6 +5,7 @@ import ProductList from "./pages/ProductList";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Cart from "./pages/Cart";
+import PaystackIntegration from "./components/PaystackIntegration";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       {/* <Home /> */}
       {/* <Product /> */}
       {/* <ProductList /> */}
-      <Cart />
+      {/* <Cart /> */}
+      <PaystackIntegration />
     </div>
   );
 }
