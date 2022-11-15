@@ -12,11 +12,11 @@ function App() {
     <div className="App">
       {/* <Register /> */}
       {/* <Login /> */}
-      {/* <Home /> */}
+      <Home />
       {/* <Product /> */}
       {/* <ProductList /> */}
       {/* <Cart /> */}
-      <PaystackIntegration />
+      {/* <PaystackIntegration /> */}
     </div>
   );
 }

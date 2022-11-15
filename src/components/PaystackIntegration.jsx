@@ -1,8 +1,9 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PaystackPop from "@paystack/inline-js";
 import styled from "styled-components";
 import { mobileDevices } from "../responsive";
+import axios from "axios";
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -54,12 +55,41 @@ const PaystackIntegration = () => {
   const [amount, setAmount] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  useEffect(() => {
+    const makeRequest = async (req, res) => {
+      try {
+        const res = await axios.post(
+          "http://localhost:5000/api/ecommerce/v1/paystack",
+          { name: "", amount: 50000 }
+        );
+        console.log(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
 
+    makeRequest();
+  }, []);
   const payWithPaystack = (e) => {
     e.preventDefault();
     const paystack = new PaystackPop();
     paystack.newTransaction({
-      key: "",
+      key: "pk_test_506d06eca10936827e72eaf8e21d1d66c9aea9a5",
+      amount: amount * 100,
+      email,
+      firstName,
+      lastName,
+      onSuccess(transaction) {
+        let message = `Payment completed with #${amount} and ${transaction.reference} reference number`;
+        alert(message);
+        setEmail("");
+        setAmount("");
+        setFirstName("");
+        setLastName("");
+      },
+      onCancel() {
+        alert(`you have cancelled the transaction`);
+      },
     });
   };
   return (
