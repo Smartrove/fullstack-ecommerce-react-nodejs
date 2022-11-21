@@ -26,16 +26,19 @@ export const categories = [
     id: 1,
     image: "Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
     title: "Shirt Style",
+    category: "men",
   },
   {
     id: 2,
     image: "3.png",
     title: "LoungeWear Love",
+    category: "women",
   },
   {
     id: 3,
     image: "Women-Jacket-PNG-High-Quality-Image.png",
     title: "LightJackets",
+    category: "jacket",
   },
 ];
 export const popularProducts = [

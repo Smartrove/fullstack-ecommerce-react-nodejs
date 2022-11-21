@@ -101,8 +101,6 @@ const Button = styled.button`
 const Product = () => {
   return (
     <Container>
-      <Navbar />
-      <Announcement />
       <Wrapper>
         <ImageContainer>
           <Image src="product-6.jpg" />
@@ -143,7 +141,6 @@ const Product = () => {
         </InfoContainer>
       </Wrapper>
       <NewsLetter />
-      <Footer />
     </Container>
   );
 };

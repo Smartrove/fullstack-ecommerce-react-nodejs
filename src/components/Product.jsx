@@ -28,7 +28,7 @@ const Container = styled.div`
   background-color: f5fbfd;
   position: relative;
 
-  &: hover ${InfoContainer} {
+  &:hover ${InfoContainer} {
     opacity: 1;
   }
 `;
@@ -41,7 +41,7 @@ const Circle = styled.div`
   z-index: 3;
 `;
 const Image = styled.img`
-  height: 75%;
+  height: 35vh;
   z-index: 3;
 `;
 const Icon = styled.div`

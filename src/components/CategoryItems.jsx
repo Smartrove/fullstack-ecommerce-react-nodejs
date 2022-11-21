@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   flex: 1;
@@ -14,18 +15,18 @@ const Container = styled.div`
 `;
 const Image = styled.img`
   width: 100%;
-  height: 100%;
+  height: 50vh;
   object-fit: cover;
 `;
 const InfoContainer = styled.div`
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // height: 100%;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; */
 
   width: 100%;
   flex-direction: column;
@@ -50,11 +51,13 @@ const Button = styled.button`
 const CategoryItems = ({ item }) => {
   return (
     <Container>
-      <Image src={item.image} />
-      <InfoContainer>
-        <Button>Shop Now</Button>
-        <Title>{item.title}</Title>
-      </InfoContainer>
+      <Link to={`/productList/${item.category}`}>
+        <Image src={item.image} />
+        <InfoContainer>
+          <Button>Shop Now</Button>
+          <Title>{item.title}</Title>
+        </InfoContainer>
+      </Link>
     </Container>
   );
 };
